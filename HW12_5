@@ -1,0 +1,40 @@
+class Pribor {
+  turn = false; 
+
+  constructor(name,power) {
+    this.name = name;
+    this.power = power;
+    console.log( `Создан прибор ${name}, мощность: ${power}` );
+  }
+
+}
+
+let lump = new Pribor('lump',20);
+let comp = new Pribor('comuter',500)
+
+lump.illumination = 200;
+lump.turn = false;
+
+comp.vCard = 'nVidea';
+comp.turn = true;
+
+priborCollection = [lump,comp];
+
+netPover = 0; //напряжение сети
+function netPoverCheck(mas) {
+for( let i=0 ;i<2; i++){
+  if (mas[i].turn) {
+    console.log(mas[i].name + ' включен')
+    netPover = netPover + mas[i].power
+    
+  }else {
+    console.log(mas[i].name + ' выключен')
+  }
+  
+ }
+console.log('Потребление энергии в сети = '+netPover+ ' W')
+}
+netPoverCheck(priborCollection);
+
+console.log(lump);
+console.log(comp);

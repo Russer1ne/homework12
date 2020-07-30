@@ -1,0 +1,17 @@
+const person = {
+
+city: "Moscow"
+
+}
+x = 'city';
+const student = Object.create(person);
+
+student.ownCity = "Piter",
+student.age = 28;
+
+function func (obj,str){
+  console.log(str in obj)
+}
+
+func(student,x);
+

@@ -1,0 +1,41 @@
+function Pribor(name,power){
+  this.power = power,
+  this.name = name
+  console.log( `Создан прибор ${name}, мощность: ${power}` );
+}
+Pribor.prototype.turnOn = function(turn){ //функуция включения прибора
+    this.turn = true;
+}
+Pribor.prototype.turnOff = function(turn){//функция выключения прибора
+    this.turn = false;
+}
+const lump = new Pribor('Lump',20)
+const comp = new Pribor('Computer',500)
+
+lump.ilumination = 200;
+comp.vCard = 'nVidea';
+lump.turnOn();//включение приборов
+comp.turnOn();
+//lump.turnOff();
+//comp.turnOff();
+
+priborCollection = [lump,comp] //массив приборов, для проверки в в цикле, не знаю делают ли так))
+//console.log(a)
+
+netPover = 0; //напряжение сети
+function netPoverCheck(mas) {
+for( let i=0 ;i<2; i++){
+  if (mas[i].turn) {
+    console.log(mas[i].name + ' включен')
+    netPover = netPover + mas[i].power
+    
+  }else {
+    console.log(mas[i].name + ' выключен')
+  }
+  
+ }
+console.log('Потребление энергии в сети = '+netPover+ ' W')
+}
+netPoverCheck(priborCollection);
+
+console.log(priborCollection)// тут покажет все объекты, где мы увидем что у каждого прибора есть собственное свойство
